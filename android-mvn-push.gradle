@@ -1,0 +1,82 @@
+if (!(hasProperty("nexusUsername") && hasProperty("nexusPassword"))) {
+    return;
+}
+
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+afterEvaluate { project ->
+    project.version = android.defaultConfig.versionName
+    project.group = 'yuku.ambilwarna'
+
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+                pom.artifactId = 'ambilwarna'
+
+                repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                    authentication(userName: nexusUsername, password: nexusPassword)
+                }
+
+                pom.project {
+                    name 'AmbilWarna'
+                    packaging 'aar'
+                    description 'Android Color Picker aka AmbilWarna library ("Pick a Color" in Indonesian)'
+                    url 'https://github.com/yukuku/ambilwarna'
+
+                    scm {
+                        url 'https://github.com/yukuku/ambilwarna'
+                        connection 'scm:git@github.com:yukuku/ambilwarna.git'
+                        developerConnection 'scm:git@github.com:yukuku/ambilwarna.git'
+                    }
+
+                    licenses {
+                        license {
+                            name 'The Apache Software License, Version 2.0'
+                            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                            distribution 'repo'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id 'yukuku'
+                            name 'yukuku'
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    signing {
+        required { gradle.taskGraph.hasTask("uploadArchives") }
+        sign configurations.archives
+    }
+
+    task androidJavadocs(type: Javadoc) {
+        source = android.sourceSets.main.java.srcDirs
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+
+        options {
+            linksOffline "http://d.android.com/reference", "${android.sdkDirectory}/docs/reference"
+        }
+    }
+
+    task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+        classifier = 'javadoc'
+        from androidJavadocs.destinationDir
+    }
+
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+    }
+
+    artifacts {
+        archives androidSourcesJar
+        archives androidJavadocsJar
+    }
+}
