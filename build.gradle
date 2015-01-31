@@ -17,3 +17,11 @@ allprojects {
         jcenter()
     }
 }
+ext {
+    propBuildToolsVersion = '21.1.2'
+    propCompileSdkVersion = 21
+    propMinSdkVersion = 7
+    propTargetSdkVersion = propCompileSdkVersion
+    propVersionCode = 2
+    propVersionName = '2.0'
+}
