@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.1"
+    compileSdkVersion propCompileSdkVersion
+    buildToolsVersion propBuildToolsVersion
 
     defaultConfig {
         applicationId 'yuku.ambilwarna.demo'
-        minSdkVersion 7
-        targetSdkVersion 19
-        versionCode 2
-        versionName '2.0'
+        minSdkVersion propMinSdkVersion
+        targetSdkVersion propTargetSdkVersion
+        versionCode propVersionCode
+        versionName propVersionName
     }
     buildTypes {
         release {
@@ -20,6 +20,5 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':library')
 }
