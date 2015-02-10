@@ -1,5 +1,5 @@
 if (!(hasProperty("nexusUsername") && hasProperty("nexusPassword"))) {
-    return;
+    throw new RuntimeException('no username')
 }
 
 apply plugin: 'maven'
@@ -7,7 +7,7 @@ apply plugin: 'signing'
 
 afterEvaluate { project ->
     project.version = android.defaultConfig.versionName
-    project.group = 'yuku.ambilwarna'
+    project.group = 'com.github.yukuku'
 
     uploadArchives {
         repositories {
