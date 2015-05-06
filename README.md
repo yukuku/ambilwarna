@@ -16,6 +16,16 @@ It is also used by:
 
 If your application has a feature to customize the color of some background, text, or maybe for a painting application where the user can select different colors for painting or filling, then `AmbilWarna` is suitable for you.
 
+
+Adding it to your project
+===========
+
+```groovy
+dependencies {
+    compile 'com.github.yukuku:ambilwarna:2.0'
+}
+```
+
 Screenshots
 ===========
 
