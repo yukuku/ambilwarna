@@ -63,6 +63,8 @@ Example:
 How to use it as a Preference
 =============================
 
+![](http://s11.postimg.org/sfn41uh43/img.png)
+
 Very simple. It works like a `DialogPreference` that stores an Integer to the shared preferences file.
 
 Just add the following to the preferences xml file.
