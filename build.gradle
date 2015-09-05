@@ -22,7 +22,7 @@ allprojects {
  * Global version names.
  */
 ext {
-    propBuildToolsVersion = '23.0.0'
+    propBuildToolsVersion = '23.0.1'
     propCompileSdkVersion = 23
     propMinSdkVersion = 7
     propTargetSdkVersion = propCompileSdkVersion
