@@ -22,7 +22,7 @@ Adding it to your project
 
 ```groovy
 dependencies {
-    compile 'com.github.yukuku:ambilwarna:2.0'
+    compile 'com.github.yukuku:ambilwarna:2.0.1'
 }
 ```
 
