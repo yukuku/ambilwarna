@@ -17,7 +17,7 @@ import android.widget.RelativeLayout;
 public class AmbilWarnaDialog {
 	public interface OnAmbilWarnaListener {
 		void onCancel(AmbilWarnaDialog dialog);
-
+		void onChange(AmbilWarnaDialog dialog, int color);
 		void onOk(AmbilWarnaDialog dialog, int color);
 	}
 
@@ -109,6 +109,7 @@ public class AmbilWarnaDialog {
 					viewSatVal.setHue(getHue());
 					moveCursor();
 					viewNewColor.setBackgroundColor(getColor());
+					AmbilWarnaDialog.this.listener.onChange(AmbilWarnaDialog.this, getColor());
 					updateAlphaView();
 					return true;
 				}
@@ -138,6 +139,7 @@ public class AmbilWarnaDialog {
 					int col = AmbilWarnaDialog.this.getColor();
 					int c = a << 24 | col & 0x00ffffff;
 					viewNewColor.setBackgroundColor(c);
+					AmbilWarnaDialog.this.listener.onChange(AmbilWarnaDialog.this, getColor());
 					return true;
 				}
 				return false;
@@ -164,7 +166,7 @@ public class AmbilWarnaDialog {
 					// update view
 					moveTarget();
 					viewNewColor.setBackgroundColor(getColor());
-
+					AmbilWarnaDialog.this.listener.onChange(AmbilWarnaDialog.this, getColor());
 					return true;
 				}
 				return false;

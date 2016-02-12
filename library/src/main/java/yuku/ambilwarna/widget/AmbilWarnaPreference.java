@@ -6,6 +6,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.preference.Preference;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import yuku.ambilwarna.AmbilWarnaDialog;
@@ -45,6 +46,11 @@ public class AmbilWarnaPreference extends Preference {
 
 			@Override public void onCancel(AmbilWarnaDialog dialog) {
 				// nothing to do
+			}
+
+			@Override
+			public void onChange(AmbilWarnaDialog dialog, int color) {
+				Log.d("AmbilWarnaPreference", "Color live update: " + color);
 			}
 		}).show();
 	}
