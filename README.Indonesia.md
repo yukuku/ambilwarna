@@ -88,5 +88,5 @@ Android: judul = "Pilih warna dengan alpha" / >
 Kontributor
 ============
 
-* Pascal kaleng (noobs.com)
+* Pascal Cans (noobs.com)
 * Justin Warner (satu Rainboot Studio)
