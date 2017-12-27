@@ -20,6 +20,16 @@ If your application has a feature to customize the color of some background, tex
 Adding it to your project
 ===========
 
+Android Studio 3.0 and above:
+
+```groovy
+dependencies {
+    implementation 'com.github.yukuku:ambilwarna:2.0.1'
+}
+```
+
+Android Studio 2.3.* and lower:
+
 ```groovy
 dependencies {
     compile 'com.github.yukuku:ambilwarna:2.0.1'
