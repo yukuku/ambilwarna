@@ -48,15 +48,15 @@ How to use the dialog
 =====================
 
 Create a color picker dialog by calling the following constructor, and then show it.
-
+```java
     AmbilWarnaDialog(Context context, int color, OnAmbilWarnaListener listener)
-
+```
 Alpha is also supported by passing the 3rd parameter `supportsAlpha`:
-
+```java
     AmbilWarnaDialog(Context context, int color, boolean supportsAlpha, OnAmbilWarnaListener listener)
-
+```
 Example:
-
+```java
     // initialColor is the initially-selected color to be shown in the rectangle on the left of the arrow.
     // for example, 0xff000000 is black, 0xff0000ff is blue. Please be aware of the initial 0xff which is the alpha.
     AmbilWarnaDialog dialog = new AmbilWarnaDialog(this, initialColor, new OnAmbilWarnaListener() {
@@ -71,7 +71,7 @@ Example:
     	}
 
     dialog.show();
-
+```
 How to use it as a Preference
 =============================
 
@@ -80,14 +80,14 @@ How to use it as a Preference
 Very simple. It works like a `DialogPreference` that stores an Integer to the shared preferences file.
 
 Just add the following to the preferences xml file.
-
+```xml
   	<yuku.ambilwarna.widget.AmbilWarnaPreference
   		android:key="your_preference_key"
   		android:defaultValue="0xff6699cc" 
   		android:title="Pick a color" />
-
+```
 To enable alpha, use the application attribute `supportsAlpha`, as follows:
-
+```xml
     <PreferenceScreen
     	xmlns:android="http://schemas.android.com/apk/res/android"
     	xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -98,7 +98,7 @@ To enable alpha, use the application attribute `supportsAlpha`, as follows:
     		app:supportsAlpha="true"
     		android:title="Pick a color with alpha" />
     </PreferenceScreen>
-
+```
 Contributors
 ============
 
