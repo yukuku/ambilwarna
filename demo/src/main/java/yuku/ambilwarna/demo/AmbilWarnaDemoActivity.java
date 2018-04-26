@@ -3,6 +3,7 @@ package yuku.ambilwarna.demo;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,6 +58,11 @@ public class AmbilWarnaDemoActivity extends Activity {
 			@Override
 			public void onCancel(AmbilWarnaDialog dialog) {
 				Toast.makeText(getApplicationContext(), "cancel", Toast.LENGTH_SHORT).show();
+			}
+
+			@Override
+			public void onChange(AmbilWarnaDialog dialog, int color) {
+				Log.d("AmbilWarnaDemoActivity", "Color live update: " + color);
 			}
 		});
 		dialog.show();
