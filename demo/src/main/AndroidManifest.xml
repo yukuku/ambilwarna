@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="yuku.ambilwarna.demo">
 
-	<application android:icon="@drawable/ic_launcher" android:label="AmbilWarna Demo">
+	<application android:icon="@mipmap/ic_launcher" android:label="AmbilWarna Demo">
 		<activity android:name=".AmbilWarnaDemoActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
