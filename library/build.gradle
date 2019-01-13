@@ -18,3 +18,7 @@ android {
 }
 
 apply from: '../android-mvn-push.gradle'
+
+dependencies {
+    implementation 'androidx.preference:preference:1.0.0'
+}
